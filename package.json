@@ -1,0 +1,39 @@
+{
+  "name": "sebass-first-app",
+  "version": "1.0.0",
+  "description": "testing",
+  "author": "Sebass van Boxel <svboxel@gmail.com>",
+  "license": "ISC",
+  "repository": "https://github.com/SvBoxel/probot-test.git",
+  "homepage": "https://github.com/SvBoxel/probot-test",
+  "bugs": "https://github.com/SvBoxel/probot-test/issues",
+  "keywords": [
+    "probot",
+    "github",
+    "probot-app"
+  ],
+  "scripts": {
+    "dev": "nodemon --exec \"npm start\"",
+    "start": "probot run ./index.js",
+    "lint": "standard --fix",
+    "test": "jest && standard",
+    "test:watch": "jest --watch --notify --notifyMode=change --coverage"
+  },
+  "dependencies": {
+    "probot": "^7.0.0"
+  },
+  "devDependencies": {
+    "jest": "^22.4.3",
+    "nodemon": "^1.17.2",
+    "smee-client": "^1.0.2",
+    "standard": "^10.0.3"
+  },
+  "engines": {
+    "node": ">= 8.3.0"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  }
+}
