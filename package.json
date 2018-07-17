@@ -18,12 +18,14 @@
     "start": "probot run ./index.js",
     "lint": "standard --fix",
     "test": "jest && standard",
-    "test:watch": "jest --watch --notify --notifyMode=change --coverage"
+    "test:watch": "jest --watch",
+    "test:ci": "jest && codecov"
   },
   "dependencies": {
     "probot": "7.0.0"
   },
   "devDependencies": {
+    "codecov": "3.0.4",
     "jest": "23.4.1",
     "nodemon": "1.17.2",
     "smee-client": "1.0.2",
@@ -31,6 +33,10 @@
   },
   "engines": {
     "node": ">= 8.3.0"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   },
   "standard": {
     "env": [
