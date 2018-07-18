@@ -30,28 +30,48 @@ describe('deleteMergedBranch function', () => {
     repo = payload.repository.name
   })
 
-  it('should call the deleteReference method', async () => {
-    await deleteMergedBranch(context)
-    expect(context.github.gitdata.deleteReference).toHaveBeenCalledWith({
-      owner,
-      ref: `heads/${ref}`,
-      repo
-    })
-  })
-
-  it('should log the delete', async () => {
-    await deleteMergedBranch(context)
-    expect(context.log.info).toBeCalledWith(`Successfully deleted ${owner}/${repo}/heads/${ref}`)
-  })
-
-  describe('deleteReference call fails', () => {
-    beforeEach(() => {
-      context.github.gitdata.deleteReference = jest.fn().mockReturnValue(Promise.reject(new Error()))
-    })
-
-    it('should log the error', async () => {
+  describe('branch is merged', async () => {
+    beforeEach(async () => {
+      context.payload.merged = true
       await deleteMergedBranch(context)
-      expect(context.log.warn).toBeCalledWith(expect.any(Error), `Failed to delete ${owner}/${repo}/heads/${ref}`)
+    })
+
+    it('should call the deleteReference method', () => {
+      expect(context.github.gitdata.deleteReference).toHaveBeenCalledWith({
+        owner,
+        ref: `heads/${ref}`,
+        repo
+      })
+    })
+
+    it('should log the delete', () => {
+      expect(context.log.info).toBeCalledWith(`Successfully deleted ${owner}/${repo}/heads/${ref}`)
+    })
+
+    describe('deleteReference call fails', () => {
+      beforeEach(async () => {
+        context.github.gitdata.deleteReference = jest.fn().mockReturnValue(Promise.reject(new Error()))
+        await deleteMergedBranch(context)
+      })
+
+      it('should log the error', () => {
+        expect(context.log.warn).toBeCalledWith(expect.any(Error), `Failed to delete ${owner}/${repo}/heads/${ref}`)
+      })
+    })
+  })
+
+  describe('branch is NOT merged', () => {
+    beforeEach(async () => {
+      context.payload.merged = false
+      await deleteMergedBranch(context)
+    })
+
+    it('should log it didn\'t delete the branch', () => {
+      expect(context.log.info).toBeCalledWith(`PR was closed but not merged. Keeping ${owner}/${repo}/heads/${ref}`)
+    })
+
+    it('should NOT call the deleteReference method', () => {
+      expect(context.github.gitdata.deleteReference).not.toHaveBeenCalled()
     })
   })
 })
