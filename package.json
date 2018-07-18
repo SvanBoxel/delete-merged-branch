@@ -1,16 +1,19 @@
 {
   "name": "delete-merged-branch",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "testing",
   "author": "Sebass van Boxel <svboxel@gmail.com>",
   "license": "ISC",
-  "repository": "https://github.com/SvBoxel/probot-test.git",
-  "homepage": "https://github.com/SvBoxel/probot-test",
-  "bugs": "https://github.com/SvBoxel/probot-test/issues",
+  "repository": "https://github.com/SvanBoxel/delete-merged-branch.git",
+  "homepage": "https://github.com/SvanBoxel/delete-merged-branch",
+  "bugs": "https://github.com/SvanBoxel/delete-merged-branchissues",
   "keywords": [
     "probot",
     "github",
-    "probot-app"
+    "probot-app",
+    "delete-branch",
+    "git-tools",
+    "github-app"
   ],
   "scripts": {
     "now-start": "PRIVATE_KEY=$(echo $PRIVATE_KEY_BASE64 | base64 -d) npm start",
@@ -19,7 +22,8 @@
     "lint": "standard --fix",
     "test": "jest && standard",
     "test:watch": "jest --watch",
-    "test:ci": "jest && codecov"
+    "test:ci": "jest && codecov",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "probot": "7.0.0"
@@ -28,6 +32,7 @@
     "codecov": "3.0.4",
     "jest": "23.4.1",
     "nodemon": "1.18.3",
+    "semantic-release": "15.8.0",
     "smee-client": "1.0.2",
     "standard": "11.0.1"
   },
@@ -37,6 +42,15 @@
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
+  },
+  "release": {
+    "prepare": [],
+    "verifyConditions": [
+      "@semantic-release/github"
+    ],
+    "publish": [
+      "@semantic-release/github"
+    ]
   },
   "standard": {
     "env": [

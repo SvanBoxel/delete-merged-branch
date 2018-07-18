@@ -7,8 +7,16 @@ node_js:
 
 stages:
   - test
+  - name: release
+    if: branch = master AND type IN (push)
 
 jobs:
   include:
     - stage: test
       script: npm run test:ci
+    - stage: release
+      script: npm run semantic-release
+      # deploy:
+      #   script: scripts/deploy.sh
+      #   provider: script
+      #   skip_cleanup: true
