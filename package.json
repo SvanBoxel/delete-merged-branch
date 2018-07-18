@@ -16,7 +16,7 @@
     "github-app"
   ],
   "scripts": {
-    "now-start": "PRIVATE_KEY=$(echo $PRIVATE_KEY_BASE64 | base64 -d) npm start",
+    "now-start": "PRIVATE_KEY=$(echo $PRIVATE_KEY | base64 -d) npm start",
     "dev": "nodemon --exec \"npm start\"",
     "start": "probot run ./index.js",
     "lint": "standard --fix",
@@ -51,6 +51,15 @@
     "publish": [
       "@semantic-release/github"
     ]
+  },
+  "now": {
+    "alias": "delete-merged-branch",
+    "env": {
+      "APP_ID": "@app_id",
+      "NODE_ENV": "production",
+      "PRIVATE_KEY": "@private_key",
+      "WEBHOOK_SECRET": "@webhook_secret"
+    }
   },
   "standard": {
     "env": [
