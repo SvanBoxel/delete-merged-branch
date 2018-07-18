@@ -32,7 +32,7 @@ describe('deleteMergedBranch function', () => {
 
   describe('branch is merged', async () => {
     beforeEach(async () => {
-      context.payload.merged = true
+      context.payload.pull_request.merged = true
       await deleteMergedBranch(context)
     })
 
@@ -62,7 +62,7 @@ describe('deleteMergedBranch function', () => {
 
   describe('branch is NOT merged', () => {
     beforeEach(async () => {
-      context.payload.merged = false
+      context.payload.pull_request.merged = false
       await deleteMergedBranch(context)
     })
 
