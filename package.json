@@ -1,7 +1,7 @@
 {
   "name": "delete-merged-branch",
   "version": "0.0.0-development",
-  "description": "testing",
+  "description": "A GitHub app built that automatically deletes a branch after it's merged. That's it, enjoy!  ",
   "author": "Sebass van Boxel <svboxel@gmail.com>",
   "license": "ISC",
   "repository": "https://github.com/SvanBoxel/delete-merged-branch.git",
