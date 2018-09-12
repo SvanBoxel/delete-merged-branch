@@ -10,10 +10,16 @@ stages:
   - name: release
     if: branch = master AND type IN (push)
 
+addons:
+  sonarcloud:
+    organization: "svanboxel-github"
+    
 jobs:
   include:
     - stage: test
-      script: npm run test:ci
+      script: 
+        - npm run test:ci
+        - sonar-scanner
     - stage: release
       script: npm run semantic-release
       deploy:
