@@ -18,7 +18,7 @@ describe('deleteMergedBranch function', () => {
       event: {
         event: 'pull_request.closed'
       },
-      payload,
+      payload: JSON.parse(JSON.stringify(payload)), // Njeh...
       github: {
         gitdata: {
           deleteReference
@@ -34,7 +34,7 @@ describe('deleteMergedBranch function', () => {
     beforeEach(async () => {
       context.payload.pull_request.base.repo.id = 200
       context.payload.pull_request.head.repo.id = 100
-      context.payload.pull_request.head.label = 'foobar'
+      context.payload.pull_request.head.label = 'foo:bar'
       await deleteMergedBranch(context)
     })
 
