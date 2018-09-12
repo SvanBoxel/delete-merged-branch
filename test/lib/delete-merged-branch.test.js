@@ -30,6 +30,23 @@ describe('deleteMergedBranch function', () => {
     repo = payload.repository.name
   })
 
+  describe('branch is merged from fork', () => {
+    beforeEach(async () => {
+      context.payload.pull_request.base.repo.id = 200
+      context.payload.pull_request.head.repo.id = 100
+      context.payload.pull_request.head.label = 'foobar'
+      await deleteMergedBranch(context)
+    })
+
+    it('should log it didn\'t delete the branch', () => {
+      expect(context.log.info).toBeCalledWith(`Closing PR from fork. Keeping ${context.payload.pull_request.head.label}`)
+    })
+
+    it('should NOT call the deleteReference method', () => {
+      expect(context.github.gitdata.deleteReference).not.toHaveBeenCalled()
+    })
+  })
+
   describe('branch is merged', async () => {
     beforeEach(async () => {
       context.payload.pull_request.merged = true
