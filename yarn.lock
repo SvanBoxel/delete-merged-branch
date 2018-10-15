@@ -27,9 +27,9 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.0.tgz#50c1e2260ac0ed9439a181de3725a0168d59c48a"
 
-"@octokit/rest@^15.11.0":
-  version "15.11.1"
-  resolved "https://registry.yarnpkg.com/@octokit/rest/-/rest-15.11.1.tgz#ef4e7462ec8f94e535a82220f7b5212111fc2647"
+"@octokit/rest@^15.13.1":
+  version "15.13.1"
+  resolved "https://registry.yarnpkg.com/@octokit/rest/-/rest-15.13.1.tgz#68b12ff0e470ad70c90e99bbb69f16bcdf62edb4"
   dependencies:
     before-after-hook "^1.1.0"
     btoa-lite "^1.0.0"
@@ -38,6 +38,7 @@
     https-proxy-agent "^2.2.0"
     lodash "^4.17.4"
     node-fetch "^2.1.1"
+    universal-user-agent "^2.0.0"
     url-template "^2.0.8"
 
 "@octokit/rest@^15.2.0":
@@ -129,6 +130,10 @@
     import-from "^2.1.0"
     into-stream "^3.1.0"
     lodash "^4.17.4"
+
+"@types/supports-color@^5.3.0":
+  version "5.3.0"
+  resolved "http://registry.npmjs.org/@types/supports-color/-/supports-color-5.3.0.tgz#eb6a52e9531fb3ebcd401cec774d1bdfb571f793"
 
 JSONStream@^1.0.4:
   version "1.3.3"
@@ -1099,9 +1104,13 @@ combined-stream@1.0.6, combined-stream@~1.0.5, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@^2.11.0, commander@^2.12.2:
+commander@^2.12.2:
   version "2.16.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.16.0.tgz#f16390593996ceb4f3eeb020b31d78528f7f8a50"
+
+commander@^2.19.0:
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"
 
 compare-func@^1.3.1:
   version "1.3.2"
@@ -1530,9 +1539,9 @@ dotenv@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-5.0.1.tgz#a5317459bd3d79ab88cff6e44057a6a3fbb1fcef"
 
-dotenv@~6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.0.0.tgz#24e37c041741c5f4b25324958ebbc34bca965935"
+dotenv@~6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.1.0.tgz#9853b6ca98292acb7dec67a95018fa40bccff42c"
 
 dtrace-provider@~0.8:
   version "0.8.7"
@@ -3883,6 +3892,10 @@ lru-cache@^4.0.1, lru-cache@^4.1.1, lru-cache@^4.1.2, lru-cache@^4.1.3:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
+macos-release@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/macos-release/-/macos-release-1.1.0.tgz#831945e29365b470aa8724b0ab36c8f8959d10fb"
+
 make-dir@^1.0.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-1.3.0.tgz#79c1033b80515bd6d24ec9933e860ca75ee27f0c"
@@ -4763,6 +4776,13 @@ os-locale@^2.0.0:
     lcid "^1.0.0"
     mem "^1.1.0"
 
+os-name@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/os-name/-/os-name-2.0.1.tgz#b9a386361c17ae3a21736ef0599405c9a8c5dc5e"
+  dependencies:
+    macos-release "^1.0.0"
+    win-release "^1.0.0"
+
 os-tmpdir@^1.0.0, os-tmpdir@^1.0.1, os-tmpdir@~1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
@@ -5070,19 +5090,20 @@ private@^0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
 
-probot@7.2.0:
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/probot/-/probot-7.2.0.tgz#2c9f3904032a208df802dc868aa2198dbf8a5216"
+probot@7.3.0:
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/probot/-/probot-7.3.0.tgz#80092a8607db3590614b8072d96b386ce1523c16"
   dependencies:
-    "@octokit/rest" "^15.11.0"
+    "@octokit/rest" "^15.13.1"
     "@octokit/webhooks" "^5.0.2"
+    "@types/supports-color" "^5.3.0"
     bottleneck "^2.8.0"
     bunyan "^1.8.12"
     bunyan-format "^0.2.1"
     bunyan-sentry-stream "^1.1.0"
     cache-manager "^2.4.0"
-    commander "^2.11.0"
-    dotenv "~6.0.0"
+    commander "^2.19.0"
+    dotenv "~6.1.0"
     express "^4.16.2"
     express-async-errors "^3.0.0"
     hbs "^4.0.1"
@@ -5095,6 +5116,7 @@ probot@7.2.0:
     raven "^2.4.2"
     resolve "^1.4.0"
     semver "^5.5.0"
+    supports-color "^5.5.0"
     update-dotenv "^1.1.0"
     uuid "^3.2.1"
 
@@ -5776,6 +5798,10 @@ semver-regex@^1.0.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
 
+semver@^5.0.1:
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.6.0.tgz#7e74256fbaa49c75aa7c7a205cc22799cac80004"
+
 semver@~5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
@@ -6290,6 +6316,12 @@ supports-color@^5.2.0, supports-color@^5.3.0:
   dependencies:
     has-flag "^3.0.0"
 
+supports-color@^5.5.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-5.5.0.tgz#e2e69a44ac8772f78a1ec0b35b689df6530efc8f"
+  dependencies:
+    has-flag "^3.0.0"
+
 symbol-observable@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.1.tgz#8340fc4702c3122df5d22288f88283f513d3fdd4"
@@ -6550,6 +6582,12 @@ unique-string@^1.0.0:
   dependencies:
     crypto-random-string "^1.0.0"
 
+universal-user-agent@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/universal-user-agent/-/universal-user-agent-2.0.1.tgz#18e591ca52b1cb804f6b9cbc4c336cf8191f80e1"
+  dependencies:
+    os-name "^2.0.1"
+
 universalify@^0.1.0:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.2.tgz#b646f69be3942dabcecc9d6639c80dc105efaa66"
@@ -6768,6 +6806,12 @@ widest-line@^2.0.0:
   resolved "https://registry.yarnpkg.com/widest-line/-/widest-line-2.0.0.tgz#0142a4e8a243f8882c0233aa0e0281aa76152273"
   dependencies:
     string-width "^2.1.1"
+
+win-release@^1.0.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/win-release/-/win-release-1.1.1.tgz#5fa55e02be7ca934edfc12665632e849b72e5209"
+  dependencies:
+    semver "^5.0.1"
 
 window-size@0.1.0:
   version "0.1.0"
