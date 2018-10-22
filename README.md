@@ -31,7 +31,7 @@ npm start
 This GitHub app listens to the `pull_request.closed` webhook. If a pull request is closed and the connected branch is merged, it will delete the branch.
 
 ## Release process
-CI (Travis) is in charge of releasing new versions of the GitHub Application to [Now](https://zeit.co/now). On every new commit to master we run [sementic-release](https://github.com/semantic-release/semantic-release) to determine whether the major/minor/patch version should be incremented. If so, we update the version running in production.
+CI (Travis) is in charge of releasing new versions of the GitHub Application to [Now](https://zeit.co/now). On every new commit to master we run [semantic-release](https://github.com/semantic-release/semantic-release) to determine whether the major/minor/patch version should be incremented. If so, we update the version running in production.
 
 ## Contributing
 
