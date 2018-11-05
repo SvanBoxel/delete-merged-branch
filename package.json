@@ -26,10 +26,10 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "probot": "7.3.0"
+    "probot": "7.3.0",
+    "@octokit/rest": "15.16.1"
   },
   "devDependencies": {
-    "@octokit/rest": "15.16.1",
     "codecov": "3.1.0",
     "jest": "23.4.1",
     "nodemon": "1.18.5",
