@@ -10,6 +10,7 @@ LABEL "homepage"="https://github.com/SvanBoxel"
 LABEL "maintainer"="svsnboxel@gmail.com"
 
 COPY ./lib /delete-merged-branch-action
+COPY ./package.json /delete-merged-branch-action/package.json
 COPY ./entrypoint.sh /delete-merged-branch-action/entrypoint.sh
 
 ENTRYPOINT ["/delete-merged-branch-action/entrypoint.sh"]
