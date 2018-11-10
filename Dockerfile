@@ -14,4 +14,5 @@ WORKDIR /
 COPY . .
 RUN npm install --production
 ENTRYPOINT ["probot", "receive"]
+
 CMD ["/index.js"]
