@@ -9,7 +9,7 @@ LABEL "repository"="https://github.com/SvanBoxel/delete-merged-branch"
 LABEL "homepage"="https://github.com/SvanBoxel"
 LABEL "maintainer"="svbboxel@gmail.com"
 
-ENV PATH=$PATH:/app/node_modules/.bin
+ENV PATH=$PATH:/node_modules/.bin
 WORKDIR /
 COPY . .
 RUN npm install --production
