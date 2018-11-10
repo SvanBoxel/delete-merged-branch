@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "probot": "7.3.0",
-    "@octokit/rest": "15.16.1"
+    "@octokit/rest": "15.17.0"
   },
   "devDependencies": {
     "codecov": "3.1.0",
