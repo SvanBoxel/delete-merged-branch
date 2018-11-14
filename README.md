@@ -2,6 +2,9 @@
 [![Build Status](https://travis-ci.com/SvanBoxel/delete-merged-branch.svg?token=BrByTtLgfVKqDJ6GzD2p&branch=master)](https://travis-ci.com/SvanBoxel/delete-merged-branch)
 _Want to see more badges? [Click here](#badges)!_
 
+
+_Want to run this app with [GitHub Actions](https://github.com/features/actions)? [Click here](#running-in-github-actions)_
+
 A GitHub app built with [Probot](https://github.com/probot/probot) that automatically deletes a branch after it's merged. That's it, enjoy! 
 
 ## Running it locally
@@ -32,6 +35,11 @@ This GitHub app listens to the `pull_request.closed` webhook. If a pull request 
 
 ## Release process
 CI (Travis) is in charge of releasing new versions of the GitHub Application to [Now](https://zeit.co/now). On every new commit to master we run [semantic-release](https://github.com/semantic-release/semantic-release) to determine whether the major/minor/patch version should be incremented. If so, we update the version running in production.
+
+## Running in GitHub actions
+This app is compatible with [GitHub Actions](https://github.com/features/actions). You need to create a workflow that is triggered on the `pull_request` event for this. Then, you use this repo for the action. (`SvanBoxel/delete-merged-branch@master`). Don't forget to check the `GITHUB_TOKEN` secret. That's it.
+
+![Delete merged branch action](https://user-images.githubusercontent.com/24505883/48064765-14e49180-e1c9-11e8-9fa5-151bf5783b5c.png)
 
 ## Contributing
 
