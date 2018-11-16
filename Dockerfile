@@ -22,4 +22,4 @@ WORKDIR /app
 COPY . .
 RUN npm install --production
 ENTRYPOINT ["probot", "receive"]
-CMD ["/app/index.js", "-e" ]
+CMD ["/app/index.js"]
