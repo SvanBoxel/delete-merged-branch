@@ -33,7 +33,7 @@ npm start
 ## How it works
 This GitHub app listens to the `pull_request.closed` webhook. If a pull request is closed and the connected branch is merged, it will delete the branch.
 
-## Configurations
+## Configuration
 The optional app configuration YAML file should be saved as `.github/delete-merged-branch-config.yml`. At the moment it supports the following options:
 
 - `exclude` _(array)_ - list of branches that should not be automatically deleted after a merge. 
