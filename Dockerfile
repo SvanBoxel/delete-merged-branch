@@ -21,4 +21,4 @@ WORKDIR /app
 COPY . .
 RUN npm install --production
 ENTRYPOINT ["probot", "receive"]
-CMD ["/app/index.js", "-p", "event.json"]
+CMD ["/app/index.js", "-p", "../workflow/event.json"]
