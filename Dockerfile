@@ -1,4 +1,4 @@
-FROM node:10.11.0-alpine
+FROM bkeepers/probot-action:latest
 
 LABEL "com.github.actions.name"="Delete merged branch"
 LABEL "com.github.actions.description"="No more manually deleting merged branches, this lovely app does it for you."
@@ -14,10 +14,10 @@ COPY ./lib /delete-merged-branch-action
 COPY ./package.json /delete-merged-branch-action/package.json
 COPY ./entrypoint.sh /delete-merged-branch-action/entrypoint.sh
 
-ENV PATH=$PATH:/app/node_modules/.bin
+
 WORKDIR /app
 COPY . .
 RUN npm install --production
-ENTRYPOINT ["probot", "receive"]
 
-CMD ["/index.js"]
+# Absolute path to app entrypoint
+CMD ["/app/lib/index.js"]
