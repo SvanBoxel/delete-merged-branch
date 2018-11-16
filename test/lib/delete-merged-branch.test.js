@@ -11,6 +11,7 @@ describe('deleteMergedBranch function', () => {
   beforeEach(() => {
     deleteReference = jest.fn().mockReturnValue(Promise.resolve())
     context = {
+      config: jest.fn((_, defaults) => defaults),
       log: {
         info: jest.fn(),
         warn: jest.fn()
@@ -40,6 +41,22 @@ describe('deleteMergedBranch function', () => {
 
     it('should log it didn\'t delete the branch', () => {
       expect(context.log.info).toBeCalledWith(`Closing PR from fork. Keeping ${context.payload.pull_request.head.label}`)
+    })
+
+    it('should NOT call the deleteReference method', () => {
+      expect(context.github.gitdata.deleteReference).not.toHaveBeenCalled()
+    })
+  })
+
+  describe('branch is excluded in config', () => {
+    beforeEach(async () => {
+      context.config = jest.fn().mockReturnValue({ exclude: [context.payload.pull_request.head.ref] })
+      context.payload.pull_request.head.label = 'foo:bar'
+      await deleteMergedBranch(context)
+    })
+
+    it('should log it didn\'t delete the branch', () => {
+      expect(context.log.info).toBeCalledWith(`Branch ${context.payload.pull_request.head.ref} excluded. Keeping ${context.payload.pull_request.head.label}`)
     })
 
     it('should NOT call the deleteReference method', () => {
