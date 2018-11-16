@@ -16,10 +16,9 @@ COPY ./entrypoint.sh /delete-merged-branch-action/entrypoint.sh
 
 
 ENV PATH=$PATH:/app/node_modules/.bin
-ENV GITHUB_EVENT_PATH="event.json"
 
 WORKDIR /app
 COPY . .
 RUN npm install --production
 ENTRYPOINT ["probot", "receive"]
-CMD ["/app/index.js"]
+CMD ["/app/index.js", "-e", "event.json"]
