@@ -15,9 +15,10 @@ COPY ./package.json /delete-merged-branch-action/package.json
 COPY ./entrypoint.sh /delete-merged-branch-action/entrypoint.sh
 
 
+ENV PATH=$PATH:/app/node_modules/.bin
+
 WORKDIR /app
 COPY . .
 RUN npm install --production
-
-# Absolute path to app entrypoint
+ENTRYPOINT ["probot", "receive"]
 CMD ["/app/index.js"]
