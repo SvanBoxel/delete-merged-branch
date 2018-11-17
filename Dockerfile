@@ -9,11 +9,6 @@ LABEL "repository"="https://github.com/SvanBoxel/delete-merged-branch"
 LABEL "homepage"="https://github.com/SvanBoxel"
 LABEL "maintainer"="svboxel@gmail.com"
 
-
-COPY ./lib /delete-merged-branch-action
-COPY ./package.json /delete-merged-branch-action/package.json
-COPY ./entrypoint.sh /delete-merged-branch-action/entrypoint.sh
-
 ENV PATH=$PATH:/app/node_modules/.bin
 
 WORKDIR /app
