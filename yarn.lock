@@ -55,6 +55,20 @@
     universal-user-agent "^2.0.0"
     url-template "^2.0.8"
 
+"@octokit/rest@^15.18.0":
+  version "15.18.0"
+  resolved "https://registry.yarnpkg.com/@octokit/rest/-/rest-15.18.0.tgz#e6de702b57dec94c71e806f1cff0ecb9725b3054"
+  dependencies:
+    before-after-hook "^1.1.0"
+    btoa-lite "^1.0.0"
+    debug "^3.1.0"
+    http-proxy-agent "^2.1.0"
+    https-proxy-agent "^2.2.0"
+    lodash "^4.17.4"
+    node-fetch "^2.1.1"
+    universal-user-agent "^2.0.0"
+    url-template "^2.0.8"
+
 "@octokit/webhooks@^5.0.2":
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/@octokit/webhooks/-/webhooks-5.0.2.tgz#fbf31398f0d235199591cef3c4a8fef7073c6073"
@@ -2817,9 +2831,9 @@ is-arrayish@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/is-arrayish/-/is-arrayish-0.2.1.tgz#77c99840527aa8ecb1a8ba697b80645a7a926a9d"
 
-is-base64@0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/is-base64/-/is-base64-0.0.5.tgz#39ecd12e937c667edd3b17fa677036825483b477"
+is-base64@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/is-base64/-/is-base64-0.1.0.tgz#a6f20610c6ef4863a51cba32bc0222544b932622"
 
 is-binary-path@^1.0.0:
   version "1.0.1"
@@ -4342,9 +4356,9 @@ node-pre-gyp@^0.10.0:
     semver "^5.3.0"
     tar "^4"
 
-nodemon@1.18.5:
-  version "1.18.5"
-  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.18.5.tgz#3d3924df23d06806952e8b6d3de052f2a3351807"
+nodemon@1.18.6:
+  version "1.18.6"
+  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.18.6.tgz#89b1136634d6c0afc7de24cc932a760e999e2c76"
   dependencies:
     chokidar "^2.0.4"
     debug "^3.1.0"
@@ -5074,11 +5088,11 @@ private@^0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
 
-probot@7.3.0:
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/probot/-/probot-7.3.0.tgz#80092a8607db3590614b8072d96b386ce1523c16"
+probot@7.4.0:
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/probot/-/probot-7.4.0.tgz#96a70148e8a114bcba75fd1a261155a559916cc5"
   dependencies:
-    "@octokit/rest" "^15.13.1"
+    "@octokit/rest" "^15.18.0"
     "@octokit/webhooks" "^5.0.2"
     "@types/supports-color" "^5.3.0"
     bottleneck "^2.8.0"
@@ -5091,7 +5105,7 @@ probot@7.3.0:
     express "^4.16.2"
     express-async-errors "^3.0.0"
     hbs "^4.0.1"
-    is-base64 "0.0.5"
+    is-base64 "0.1.0"
     js-yaml "^3.9.1"
     jsonwebtoken "^8.1.0"
     pkg-conf "^2.0.0"
