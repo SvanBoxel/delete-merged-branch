@@ -36,7 +36,7 @@ This GitHub app listens to the `pull_request.closed` webhook. If a pull request 
 ## Configuration
 The optional app configuration YAML file should be saved as `.github/delete-merged-branch-config.yml`. At the moment it supports the following options:
 
-- `exclude` _(array)_ - list of branches that should not be automatically deleted after a merge. 
+- `exclude` _(array)_ - list of branches that should not be automatically deleted after a merge. Wildcards supported
 
 Example `.github/delete-merged-branch-config.yml`:
 
@@ -44,6 +44,7 @@ Example `.github/delete-merged-branch-config.yml`:
 exclude: 
   - development
   - qa
+  - feature-*
 ```
 
 ## Release process
