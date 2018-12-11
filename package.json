@@ -32,7 +32,7 @@
     "codecov": "3.1.0",
     "jest": "23.4.1",
     "nodemon": "1.18.7",
-    "semantic-release": "15.12.4",
+    "semantic-release": "15.12.5",
     "smee-client": "1.0.2",
     "standard": "12.0.0"
   },
