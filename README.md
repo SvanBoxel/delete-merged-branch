@@ -30,6 +30,38 @@ npm install
 npm start
 ```
 
+## Running with Docker
+
+1. Make sure you have docker installed.
+
+2. Follow the same steps as running locally to set up the GitHub app and
+   environment files.
+
+3. Build the docker image:
+
+   ```sh
+   docker build -t delete-merged-branch .
+   ```
+
+4. Run the docker image:
+
+   ```sh
+   docker run -i -t --rm \
+       -v "$(pwd)/.env:/app/.env" \
+       -p 3000:3000 \
+       delete-merged-branch
+   ```
+
+Alternate Example: Running test in the docker image
+
+```sh
+docker run -i -t --rm \
+    -v "$(pwd)/.env:/app/.env" \
+    -v "$(pwd)/sample-data:/sample-data" \
+    delete-merged-branch \
+        receive /app/index.js -p /sample-data/event.json
+```
+
 ## How it works
 This GitHub app listens to the `pull_request.closed` webhook. If a pull request is closed and the connected branch is merged, it will delete the branch.
 

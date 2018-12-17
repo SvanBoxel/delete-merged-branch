@@ -18,5 +18,6 @@ WORKDIR /app
 COPY package.json yarn.lock /app/
 RUN yarn install --production
 COPY . .
-ENTRYPOINT ["probot", "receive"]
-CMD ["/app/index.js", "-p", "../workflow/event.json"]
+
+ENTRYPOINT ["probot"]
+CMD ["run", "/app/index.js"]
