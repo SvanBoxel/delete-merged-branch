@@ -18,7 +18,7 @@ Give your app the following permissions:
 git clone git@github.com:SvanBoxel/delete-merged-branch.git
 ```
 
-3. Copy `.env.example` to `.env` and set the right environment variables as [here](https://probot.github.io/docs/development/#configure-a-github-app) 
+3. Copy `.env.example` to `.env` and set the right environment variables as [here](https://probot.github.io/docs/configuration/)
 
 4. Now, install app dependencies and run it:
 
