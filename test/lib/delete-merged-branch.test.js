@@ -49,18 +49,36 @@ describe('deleteMergedBranch function', () => {
   })
 
   describe('branch is excluded in config', () => {
-    beforeEach(async () => {
+    it('should log it didn\'t delete the branch', async () => {
       context.config = jest.fn().mockReturnValue({ exclude: [context.payload.pull_request.head.ref] })
       context.payload.pull_request.head.label = 'foo:bar'
       await deleteMergedBranch(context)
-    })
-
-    it('should log it didn\'t delete the branch', () => {
       expect(context.log.info).toBeCalledWith(`Branch ${context.payload.pull_request.head.ref} excluded. Keeping ${context.payload.pull_request.head.label}`)
     })
 
-    it('should NOT call the deleteReference method', () => {
+    it('should NOT call the deleteReference method', async () => {
+      context.config = jest.fn().mockReturnValue({ exclude: [context.payload.pull_request.head.ref] })
+      context.payload.pull_request.head.label = 'foo:bar'
+      await deleteMergedBranch(context)
       expect(context.github.gitdata.deleteReference).not.toHaveBeenCalled()
+    })
+
+    describe('wildcard expression is used', () => {
+      it('should check for wildcard in end of string', async () => {
+        const branchWilcard = `${context.payload.pull_request.head.ref.substr(0, 8)}*`
+        context.config = jest.fn().mockReturnValue({ exclude: ['test', branchWilcard] })
+        context.payload.pull_request.head.label = 'bar:foo'
+        await deleteMergedBranch(context)
+        expect(context.log.info).toBeCalledWith(`Branch ${context.payload.pull_request.head.ref} excluded. Keeping ${context.payload.pull_request.head.label}`)
+      })
+
+      it('should check for wildcard in beginning of string', async () => {
+        const branchWilcard = `*${context.payload.pull_request.head.ref.substr(1, 20)}`
+        context.config = jest.fn().mockReturnValue({ exclude: ['test', branchWilcard] })
+        context.payload.pull_request.head.label = 'bar:foobar'
+        await deleteMergedBranch(context)
+        expect(context.log.info).toBeCalledWith(`Branch ${context.payload.pull_request.head.ref} excluded. Keeping ${context.payload.pull_request.head.label}`)
+      })
     })
   })
 
