@@ -29,6 +29,7 @@
     "probot": "7.4.0"
   },
   "devDependencies": {
+    "@semantic-release/npm": "5.1.2",
     "codecov": "3.1.0",
     "jest": "23.4.1",
     "nodemon": "1.18.8",
@@ -44,13 +45,20 @@
     "collectCoverage": true
   },
   "release": {
-    "prepare": [],
+    "plugins": [
+      "@semantic-release/npm"
+    ],
     "verifyConditions": [
       "@semantic-release/github"
     ],
     "publish": [
-      "@semantic-release/github"
+      "@semantic-release/github",
+      "@semantic-release/npm"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "tag": "latest"
   },
   "now": {
     "alias": "delete-merged-branch",
