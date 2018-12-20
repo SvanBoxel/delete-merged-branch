@@ -18,7 +18,7 @@ Give your app the following permissions:
 git clone git@github.com:SvanBoxel/delete-merged-branch.git
 ```
 
-3. Copy `.env.example` to `.env` and set the right environment variables as [here](https://probot.github.io/docs/development/#configure-a-github-app) 
+3. Copy `.env.example` to `.env` and set the right environment variables as [here](https://probot.github.io/docs/configuration/)
 
 4. Now, install app dependencies and run it:
 
@@ -28,6 +28,38 @@ npm install
 
 # Run the bot
 npm start
+```
+
+## Running with Docker
+
+1. Make sure you have docker installed.
+
+2. Follow the same steps as running locally to set up the GitHub app and
+   environment files.
+
+3. Build the docker image:
+
+   ```sh
+   docker build -t delete-merged-branch .
+   ```
+
+4. Run the docker image:
+
+   ```sh
+   docker run -i -t --rm \
+       -v "$(pwd)/.env:/app/.env" \
+       -p 3000:3000 \
+       delete-merged-branch
+   ```
+
+Alternate Example: Running test in the docker image
+
+```sh
+docker run -i -t --rm \
+    -v "$(pwd)/.env:/app/.env" \
+    -v "$(pwd)/sample-data:/sample-data" \
+    delete-merged-branch \
+        receive /app/index.js -p /sample-data/event.json
 ```
 
 ## How it works

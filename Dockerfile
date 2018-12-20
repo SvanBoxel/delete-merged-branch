@@ -12,7 +12,12 @@ LABEL "maintainer"="svboxel@gmail.com"
 ENV PATH=$PATH:/app/node_modules/.bin
 
 WORKDIR /app
+# These are the only relevant files to the 'yarn install' step. Adding anything
+# more will invalidate the docker cache more often than necessary. Over
+# multiple docker builds this will improve build time.
+COPY package.json yarn.lock /app/
+RUN yarn install --production
 COPY . .
-RUN npm install --production
-ENTRYPOINT ["probot", "receive"]
-CMD ["/app/index.js", "-p", "../workflow/event.json"]
+
+ENTRYPOINT ["probot"]
+CMD ["run", "/app/index.js"]
