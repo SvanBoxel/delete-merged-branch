@@ -5948,9 +5948,10 @@ smart-buffer@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/smart-buffer/-/smart-buffer-4.0.1.tgz#07ea1ca8d4db24eb4cac86537d7d18995221ace3"
 
-smee-client@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/smee-client/-/smee-client-1.0.2.tgz#2b7e72d7ab383e5d6e4a17ae00cd07503cbcf25d"
+smee-client@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/smee-client/-/smee-client-1.0.3.tgz#537468fff2dae0f7740d2a1baa7648c713626806"
+  integrity sha512-1DijTHPHU5iRZdn9h1oebm/5GyM8ZDUyPJyJ1BIX4X0Mqp41ehXs7/mP2jXCJq0mD44KTjKT7sOcgZ/t/ZiEJg==
   dependencies:
     commander "^2.12.2"
     eventsource "^1.0.5"
