@@ -9,9 +9,11 @@ A GitHub app built with [Probot](https://github.com/probot/probot) that automati
 
 ## Running it locally
 1. First, follow [these instructions](https://probot.github.io/docs/development/#configure-a-github-app) for making your own GitHub app.
-Give your app the following permissions:
-    - Repository contents: Read & Write.
-    - Pull requests: Read
+    1. Give your app the following permissions:
+          - Repository contents: Read & Write.
+          - Pull requests: Read
+    2. And Subscribe to the following events
+          - Pull Request
 
 2. Then, clone the repo:
 ```sh
