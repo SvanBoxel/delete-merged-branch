@@ -20,4 +20,4 @@ RUN yarn install --production
 COPY . .
 
 ENTRYPOINT ["probot", "receive"]
-CMD ["run", "/app/index.js"]
+CMD ["/app/index.js"]
