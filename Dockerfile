@@ -19,5 +19,5 @@ COPY package.json yarn.lock /app/
 RUN yarn install --production
 COPY . .
 
-ENTRYPOINT ["probot"]
-CMD ["run", "/app/index.js"]
+ENTRYPOINT ["probot", "receive"]
+CMD ["/app/index.js"]
