@@ -7,6 +7,10 @@ _Want to run this app with [GitHub Actions](https://github.com/features/actions)
 
 A GitHub app built with [Probot](https://github.com/probot/probot) that automatically deletes a branch after it's merged. That's it, enjoy! 
 
+### 🔔 Wait, do you really need this? 🔔
+You may not need this app as GitHub [recently added this feature](https://github.blog/changelog/2019-07-31-automatically-delete-head-branches-of-pull-requests/) natively to their platform. It allows you to automatically delete the head branch after a merge. If you need more advanced controls and configuration settings, this app is still well suited for the job. 
+
+
 ## Running it locally
 1. First, follow [these instructions](https://probot.github.io/docs/development/#configure-a-github-app) for making your own GitHub app.
     1. Give your app the following permissions:
