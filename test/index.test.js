@@ -22,8 +22,8 @@ describe('Auto-delete-merged-branch ProBot Application', () => {
           name,
           payload: {
             ...payload,
-            action: 'opened',
-          },
+            action: 'opened'
+          }
         })
       })
 
