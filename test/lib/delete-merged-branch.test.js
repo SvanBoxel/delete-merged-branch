@@ -97,7 +97,7 @@ describe('deleteMergedBranch function', () => {
     })
 
     it('should log the delete', () => {
-      expect(context.log.info).toBeCalledWith(`Successfully deleted ${owner}/${repo}/heads/${ref}`)
+      expect(context.log.info).toBeCalledWith(`Successfully deleted ${owner}/${repo}/heads/${ref} which was merged`)
     })
 
     describe('deleteReference call fails', () => {
@@ -124,6 +124,15 @@ describe('deleteMergedBranch function', () => {
 
     it('should NOT call the deleteReference method', () => {
       expect(context.github.git.deleteRef).not.toHaveBeenCalled()
+    })
+  })
+
+  describe('branch is closed and not merged', () => {
+    it('should log that it deleted closed branch', async () => {
+      context.config = jest.fn().mockReturnValue({ delete_closed_pr: true, exclude: [] })
+      context.payload.pull_request.merged = false
+      await deleteMergedBranch(context)
+      expect(context.log.info).toBeCalledWith(`Successfully deleted ${owner}/${repo}/heads/${ref} which was closed`)
     })
   })
 })
