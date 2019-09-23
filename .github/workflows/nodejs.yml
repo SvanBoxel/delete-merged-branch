@@ -1,0 +1,66 @@
+name: Node CI
+
+on: [push]
+
+jobs:
+  build-and-test:
+    name: Build and test code
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: npm install, build, and test
+      run: |
+        npm install
+        npm build
+        npm run test:ci
+      env: 
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+  sonarcloud-scan:
+    name: Sonarcloud scan      
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        
+  release-and-deploy:
+    name: Release to NPM registry
+    needs: [build-and-test, sonarcloud-scan]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'  
+    steps:
+    - uses: actions/checkout@v1
+    - name: publish
+      run: | 
+        npm install
+        npm run semantic-release
+      env: 
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: deploy
+      run: |
+        now="npx now --debug --token=$NOW_TOKEN"
+        echo "$ now rm --safe --yes delete-merged-branch"
+        $now rm --safe --yes delete-merged-branch
+        echo "$ now --public"
+        $now --public
+        echo "$ now alias"
+        $now alias
+      env: 
+        NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
