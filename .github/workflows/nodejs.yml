@@ -24,6 +24,7 @@ jobs:
         npm run test:ci
       env: 
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   sonarcloud-scan:
     name: Sonarcloud scan      
