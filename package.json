@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@semantic-release/npm": "5.1.10",
-    "codecov": "3.4.0",
+    "codecov": "3.6.0",
     "jest": "23.4.1",
     "nodemon": "1.19.2",
     "semantic-release": "15.13.21",
