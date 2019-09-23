@@ -20,6 +20,8 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm run test:ci
+      with: 
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         
   release-and-deploy:
     name: Release to NPM registry
