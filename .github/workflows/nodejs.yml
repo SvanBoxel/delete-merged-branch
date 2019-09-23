@@ -39,15 +39,20 @@ jobs:
         
   release-and-deploy:
     name: Release to NPM registry
-    if: github.ref == 'master'
     needs: [build-and-test, sonarcloud-scan]
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'  
     steps:
     - uses: actions/checkout@v1
-    - name: publish and deploy
+    - name: publish
       run: | 
         npm install
         npm run semantic-release
+      env: 
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: deploy
+      run: |
         now="npx now --debug --token=$NOW_TOKEN"
         echo "$ now rm --safe --yes delete-merged-branch"
         $now rm --safe --yes delete-merged-branch
@@ -56,6 +61,6 @@ jobs:
         echo "$ now alias"
         $now alias
       env: 
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
