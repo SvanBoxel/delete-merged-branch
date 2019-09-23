@@ -27,6 +27,7 @@ jobs:
         
   release-and-deploy:
     name: Release to NPM registry
+    if: github.ref == 'master'
     needs: build-and-test
     runs-on: ubuntu-latest
     steps:
