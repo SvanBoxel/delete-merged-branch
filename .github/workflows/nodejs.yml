@@ -20,7 +20,7 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm run test:ci
-      with: 
+      env: 
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         
   release-and-deploy:
