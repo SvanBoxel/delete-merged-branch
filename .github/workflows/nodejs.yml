@@ -33,6 +33,6 @@ jobs:
     - name: publish and deploy
       run: | 
         npm run semantic-release
-        ./scripts/deploy.sh
+        sh ./scripts/deploy.sh
     
     
