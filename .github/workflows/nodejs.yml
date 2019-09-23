@@ -38,7 +38,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         
   release-and-deploy:
-    name: Release to NPM registry
+    name: Release to NPM registry and deploy to ZEIT
     needs: [build-and-test, sonarcloud-scan]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'  
