@@ -32,6 +32,7 @@ jobs:
     steps:
     - name: publish and deploy
       run: | 
+        npm install
         npm run semantic-release
         now="npx now --debug --token=$NOW_TOKEN"
         echo "$ now rm --safe --yes delete-merged-branch"
