@@ -33,6 +33,15 @@ jobs:
     - name: publish and deploy
       run: | 
         npm run semantic-release
-        sh ./scripts/deploy.sh
+        now="npx now --debug --token=$NOW_TOKEN"
+        echo "$ now rm --safe --yes delete-merged-branch"
+        $now rm --safe --yes delete-merged-branch
+        echo "$ now --public"
+        $now --public
+        echo "$ now alias"
+        $now alias
+      env: 
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
     
     
