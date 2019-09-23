@@ -24,6 +24,12 @@ jobs:
         npm run test:ci
       env: 
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  sonarcloud-scan:
+    name: Sonarcloud scan      
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
@@ -33,7 +39,7 @@ jobs:
   release-and-deploy:
     name: Release to NPM registry
     if: github.ref == 'master'
-    needs: build-and-test
+    needs: [build-and-test, sonarcloud-scan]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
