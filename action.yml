@@ -1,0 +1,14 @@
+name: 'Delete merged branch'
+description: 'No more manually deleting merged branches, this lovely app does it for you.'
+author: 'Sebass van Boxel'
+inputs:
+  exclude:
+    description: 'list of branches that should not be automatically deleted after a merge. Wildcards supported.'
+    required: false
+  delete_closed_pr:
+    description: 'whether or not a branch should be deleted if PR is closed without merging'
+    required: false
+
+branding:
+  icon: 'archive'  
+  color: 'red'
