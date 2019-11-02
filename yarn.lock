@@ -6378,10 +6378,10 @@ private@^0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
 
-probot@9.6.2:
-  version "9.6.2"
-  resolved "https://registry.yarnpkg.com/probot/-/probot-9.6.2.tgz#c77777d65022aa2758ad4573fb214297d2884637"
-  integrity sha512-7HERD8WaX0OyqEbqQuHBWOudIbzxIfnmboyURPZflsUDPuOYigow+tpvUJeYkMtLyDmwOrOk1J8mgKckEjZfsA==
+probot@9.6.3:
+  version "9.6.3"
+  resolved "https://registry.yarnpkg.com/probot/-/probot-9.6.3.tgz#226cb54fe16c4cb7387cae5250fc60bda604a53a"
+  integrity sha512-sqZ4RLrBHeyzxQv2PozE8iyjcYSTdiZH0DBiYR7xVA/EvvaMYhB0W8J+nlB5pj8hrj70UIgLgo9ripPvB8XTlw==
   dependencies:
     "@octokit/app" "^4.0.0"
     "@octokit/graphql" "^4.2.0"
