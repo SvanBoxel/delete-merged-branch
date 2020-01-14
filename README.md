@@ -112,3 +112,4 @@ For more, check out the [Contributing Guide](CONTRIBUTING.md).
 [![Greenkeeper badge](https://badges.greenkeeper.io/SvanBoxel/delete-merged-branch.svg?token=f5b0c3f23f4ab216a26c3c3559453a514b321c54b14aed881e543a5969eeca62&ts=1531752685299)](https://greenkeeper.io/)
 [![Project maintainability](https://sonarcloud.io/api/project_badges/measure?project=SvanBoxel_delete-merged-branch&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=SvanBoxel_delete-merged-branch)
 [![npm version](https://badge.fury.io/js/delete-merged-branch.svg)](https://www.npmjs.com/package/delete-merged-branch)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/SvanBoxel/delete-merged-branch.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/SvanBoxel/delete-merged-branch/alerts/)
