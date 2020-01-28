@@ -29,7 +29,7 @@
     "probot": "9.9.1"
   },
   "devDependencies": {
-    "@semantic-release/npm": "5.3.5",
+    "@semantic-release/npm": "7.0.0",
     "codecov": "3.6.0",
     "jest": "23.4.1",
     "nodemon": "2.0.2",
