@@ -6454,10 +6454,10 @@ private@^0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
 
-probot@9.9.5:
-  version "9.9.5"
-  resolved "https://registry.yarnpkg.com/probot/-/probot-9.9.5.tgz#8448ad7cb1c504cb8bf831c8b3c45d75431ac82a"
-  integrity sha512-ZRJtRXW+yhct8fUf3MwbAWfrJDUOObEV8D1ZMmFkhsDXlvkcpsmBgn6pGZqh/0g+n4aJeQxYL39ejMOEx9rG+w==
+probot@9.9.6:
+  version "9.9.6"
+  resolved "https://registry.yarnpkg.com/probot/-/probot-9.9.6.tgz#ccb60fe915b7df39e85f4208069c3e5684e002da"
+  integrity sha512-13Ay90LBqlGC0OXb3xFm1+uQmKErYjVEt9tUDknfDgqSJ5NKSHW4O706ft6OMW/uH8ujr9ynZRy5yloEE+LCsA==
   dependencies:
     "@octokit/app" "^4.0.0"
     "@octokit/graphql" "^4.2.0"
@@ -6494,7 +6494,7 @@ probot@9.9.5:
     supports-color "^7.0.0"
     update-dotenv "^1.1.0"
     update-notifier "^4.0.0"
-    uuid "^3.2.1"
+    uuid "^7.0.0"
 
 process-nextick-args@~2.0.0:
   version "2.0.1"
@@ -8449,10 +8449,15 @@ uuid@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.0.0.tgz#6728fc0459c450d796a99c31837569bdf672d728"
 
-uuid@^3.2.1, uuid@^3.3.2, uuid@^3.3.3:
+uuid@^3.3.2, uuid@^3.3.3:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.3.tgz#4568f0216e78760ee1dbf3a4d2cf53e224112866"
   integrity sha512-pW0No1RGHgzlpHJO1nsVrHKpOEIxkGg1xB+v0ZmdNH5OAeAwzAVrCnI2/6Mtx+Uys6iaylxa+D3g4j63IKKjSQ==
+
+uuid@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.0.tgz#1833d4b9ce50b732bfaa271f9cb74e974d303c79"
+  integrity sha512-LNUrNsXdI/fUsypJbWM8Jt4DgQdFAZh41p9C7WE9Cn+CULOEkoG2lgQyH68v3wnIy5K3fN4jdSt270K6IFA3MQ==
 
 v8-compile-cache@^2.0.3:
   version "2.1.0"
