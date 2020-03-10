@@ -26,7 +26,7 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "probot": "9.9.6"
+    "probot": "9.9.7"
   },
   "devDependencies": {
     "@semantic-release/npm": "7.0.4",
