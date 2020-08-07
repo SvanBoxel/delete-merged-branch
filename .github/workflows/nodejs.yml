@@ -57,12 +57,13 @@ jobs:
 #       env: 
 #         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: deploy
+    - name: setup gcloud connection
       run: |
         mkdir ~/.gcloud
         echo -e $GCP_TOKEN >> ~/.gcloud/keyfile.json
-        curl -o- -L https://slss.io/install | bash
-        serverless deploy -v
       env: 
         GCP_TOKEN: ${{ secrets.GCP_ACCOUNT_KEY }}
-    
+    - name: deploy to gcloud
+      uses: serverless/github-action@master
+      with:
+        args: deploy -v
