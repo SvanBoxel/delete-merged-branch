@@ -7,6 +7,7 @@
   "repository": "https://github.com/SvanBoxel/delete-merged-branch.git",
   "homepage": "https://github.com/SvanBoxel/delete-merged-branch",
   "bugs": "https://github.com/SvanBoxel/delete-merged-branchissues",
+  "main": "handler.js",
   "keywords": [
     "probot",
     "github",
@@ -16,7 +17,6 @@
     "github-app"
   ],
   "scripts": {
-    "now-start": "PRIVATE_KEY=$(echo $PRIVATE_KEY | base64 -d) npm start",
     "dev": "nodemon --exec \"npm start\"",
     "start": "probot run ./index.js",
     "lint": "standard --fix",
@@ -26,16 +26,19 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "probot": "9.11.4"
+    "@probot/serverless-gcf": "^0.2.0",
+    "npm-check-updates": "^7.0.3",
+    "probot": "9.13.0",
+    "serverless-google-cloudfunctions": "^3.1.0"
   },
   "devDependencies": {
     "@semantic-release/npm": "7.0.5",
-    "codecov": "3.7.1",
-    "jest": "23.4.1",
+    "codecov": "3.7.2",
+    "jest": "26.2.2",
     "nodemon": "2.0.4",
-    "semantic-release": "17.0.8",
-    "smee-client": "1.0.3",
-    "standard": "14.3.2"
+    "semantic-release": "17.1.1",
+    "smee-client": "1.1.0",
+    "standard": "14.3.4"
   },
   "engines": {
     "node": ">= 10.13.0"
@@ -59,15 +62,6 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "tag": "latest"
-  },
-  "now": {
-    "alias": "delete-merged-branch",
-    "env": {
-      "APP_ID": "@app_id",
-      "NODE_ENV": "production",
-      "PRIVATE_KEY": "@private_key",
-      "WEBHOOK_SECRET": "@webhook_secret"
-    }
   },
   "standard": {
     "env": [

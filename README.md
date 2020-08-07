@@ -88,7 +88,7 @@ delete_closed_pr: true
 ```
 
 ## Release process
-CI (Travis) is in charge of releasing new versions of the GitHub Application to [Vercel](https://vercel.com). On every new commit to master we run [semantic-release](https://github.com/semantic-release/semantic-release) to determine whether the major/minor/patch version should be incremented. If so, we update the version running in production.
+CI (Travis) is in charge of releasing new versions of the GitHub Application to [Google Cloud Platform](https://cloud.google.com). On every new commit to master we run [semantic-release](https://github.com/semantic-release/semantic-release) to determine whether the major/minor/patch version should be incremented. If so, we update the version running in production.
 
 ## Running in GitHub actions
 This app is compatible with [GitHub Actions](https://github.com/features/actions). You need to create a workflow that is triggered on the `pull_request` event for this. Then, you use this repo for the action. (`SvanBoxel/delete-merged-branch@master`). Don't forget to check the `GITHUB_TOKEN` secret. That's it.
