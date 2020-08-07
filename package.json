@@ -28,8 +28,7 @@
   "dependencies": {
     "@probot/serverless-gcf": "^0.2.0",
     "npm-check-updates": "^7.0.3",
-    "probot": "9.13.0",
-    "serverless-google-cloudfunctions": "3.1.0"
+    "probot": "9.13.0"
   },
   "devDependencies": {
     "@semantic-release/npm": "7.0.5",
@@ -37,6 +36,7 @@
     "jest": "26.2.2",
     "nodemon": "2.0.4",
     "semantic-release": "17.1.1",
+    "serverless-google-cloudfunctions": "^3.1.0",
     "smee-client": "1.1.0",
     "standard": "14.3.4"
   },
