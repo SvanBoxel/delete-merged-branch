@@ -41,7 +41,7 @@ jobs:
     name: Release to NPM registry and deploy to ZEIT
 #     needs: [build-and-test, sonarcloud-scan]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'  
+#     if: github.ref == 'refs/heads/master'  
     steps:
     - uses: actions/checkout@v1
     - name: Setup Google Cloud SDK
