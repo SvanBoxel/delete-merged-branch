@@ -44,23 +44,24 @@ jobs:
     if: github.ref == 'refs/heads/master'  
     steps:
     - uses: actions/checkout@v1
-    - name: publish
-      run: | 
-        npm install
-        npm run semantic-release
-      env: 
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Setup Google Cloud SDK
+      uses: mathrix-education/setup-gcloud@1.2.1
+      with:
+        service-account-key: ${{ secrets.GCP_ACCOUNT_KEY }}
+        # The default Google Cloud project. You can change it later.
+        project: delete-merged-branch
+#     - name: publish
+#       run: | 
+#         npm install
+#         npm run semantic-release
+#       env: 
+#         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: deploy
       run: |
-        now="npx now --debug --token=$NOW_TOKEN"
-        echo "$ now rm --safe --yes delete-merged-branch"
-        $now rm --safe --yes delete-merged-branch
-        echo "$ now --public"
-        $now --public
-        echo "$ now alias"
-        $now alias
+        echo -e $GCP_TOKEN >> ~/.gcloud/keyfile.json
+        curl -o- -L https://slss.io/install | bash
+        serverless deploy -v
       env: 
-        NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GCP_TOKEN: ${{ secrets.GCP_ACCOUNT_KEY }}
     
