@@ -44,12 +44,12 @@ jobs:
 #     if: github.ref == 'refs/heads/master'  
     steps:
     - uses: actions/checkout@v1
-    - name: Setup Google Cloud SDK
-      uses: mathrix-education/setup-gcloud@1.2.1
-      with:
-        service-account-key: ${{ secrets.GCP_ACCOUNT_KEY }}
-        # The default Google Cloud project. You can change it later.
-        project: delete-merged-branch
+#     - name: Setup Google Cloud SDK
+#       uses: mathrix-education/setup-gcloud@1.2.1
+#       with:
+#         service-account-key: ${{ secrets.GCP_ACCOUNT_KEY }}
+#         # The default Google Cloud project. You can change it later.
+#         project: delete-merged-branch
 #     - name: publish
 #       run: | 
 #         npm install
@@ -59,6 +59,7 @@ jobs:
 #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: deploy
       run: |
+        mkdir ~/.gcloud
         echo -e $GCP_TOKEN >> ~/.gcloud/keyfile.json
         curl -o- -L https://slss.io/install | bash
         serverless deploy -v
