@@ -82,7 +82,7 @@ describe('deleteMergedBranch function', () => {
     })
   })
 
-  describe('branch is merged', async () => {
+  describe('branch is merged', () => {
     beforeEach(async () => {
       context.payload.pull_request.merged = true
       await deleteMergedBranch(context)
@@ -102,7 +102,7 @@ describe('deleteMergedBranch function', () => {
 
     describe('deleteReference call fails', () => {
       beforeEach(async () => {
-        context.github.git.deleteRef = jest.fn().mockReturnValue(Promise.reject(new Error()))
+        context.github.git.deleteRef = jest.fn().mockRejectedValue(new Error('Async error'));
         await deleteMergedBranch(context)
       })
 
