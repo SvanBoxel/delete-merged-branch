@@ -2,6 +2,8 @@ name: Publish and release
 
 on: [push]
 
+env: 
+  PROJECT_ID: 1053850952252
 jobs:
   build-and-test:
     name: Build and test code

@@ -2,9 +2,11 @@ service: node-simple-http-endpoint # NOTE: Don't put the word "google" in here
 
 provider:
   name: google
-  runtime: 'nodejs8'
+  runtime: 'nodejs10'
   project: delete-merged-branch # google account project name
   credentials: ~/.gcloud/keyfile.json # path must be absolute
+  environment:
+    PROJECT_ID: ${env:PROJECT_ID}
 
 plugins:
   - serverless-google-cloudfunctions

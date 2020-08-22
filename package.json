@@ -18,6 +18,7 @@
   ],
   "scripts": {
     "dev": "nodemon --exec \"npm start\"",
+    "gcp-dev": "functions-framework --target=probot",
     "start": "probot run ./index.js",
     "lint": "standard --fix",
     "test": "jest && standard",
@@ -26,6 +27,7 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
+    "@google-cloud/secret-manager": "^3.1.0",
     "@probot/serverless-gcf": "^0.2.0",
     "npm-check-updates": "^7.0.3",
     "probot": "9.13.0"
