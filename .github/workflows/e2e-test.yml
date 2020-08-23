@@ -82,4 +82,8 @@ jobs:
             issue_number: '${{ env.pull_number }}'
           });
           
-          console.log(events)
+          const closed = events.data.some(events => events.event === 'head_ref_deleted')
+          
+          if (!closed) {
+            core.setFailed(`Action failed with error ${err}`);
+          }
