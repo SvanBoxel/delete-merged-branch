@@ -54,7 +54,7 @@ jobs:
             base: 'master'
           });
           
-          console.log(pr)
+          core.exportVariable('pull_number', pr.data.number);
     - name: Merge pull request
       uses: actions/github-script@v3
       with: 
@@ -65,4 +65,5 @@ jobs:
           octokit.pulls.merge({
             owner: '${{ env.owner }}',
             repo: '${{ env.repo }}',
+            pull_number: '${{ env.pull_number }}'
           });
