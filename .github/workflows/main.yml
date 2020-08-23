@@ -62,7 +62,7 @@ jobs:
         script: |
           const short_sha = '${{ env.short_sha }}';
          
-          octokit.pulls.merge({
+          github.pulls.merge({
             owner: '${{ env.owner }}',
             repo: '${{ env.repo }}',
             pull_number: '${{ env.pull_number }}'
