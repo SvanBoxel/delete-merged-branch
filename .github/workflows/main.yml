@@ -28,4 +28,5 @@ jobs:
       run: |
         git checkout -b ${{ github.sha }}
         echo '${{ github.sha }}' >> README.md
+        git commit -m "Testing delete-merged-branch bot sha ${{ github.sha }}"
         git push -u origin master
