@@ -24,9 +24,9 @@ jobs:
         repository: SvanBoxel/delete-test
         token: ${{ secrets.DELETE_TEST_REPO_PAT }}
         ref: 'master'
-    - name: Run a one-line script
+    - name: Create commit
       run: |
-        SHA = ${{ github.sha }}
+        SHA = '${{ github.sha }}'
         SHORT_SHA = ${SHA: -7}
         git config --global user.email "actions-bot@example.com"
         git config --global user.name "Actions bot delete merged branch"
