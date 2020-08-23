@@ -13,7 +13,7 @@ env:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  test-end-2-end-flow:
+  test-e2e-flow:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -68,7 +68,7 @@ jobs:
             pull_number: '${{ env.pull_number }}'
           });
     - name: Sleep for 5 seconds
-      run: sleep 5s
+      run: sleep 10s
     - name: Check if branch is deleted
       uses: actions/github-script@v3
       with: 
