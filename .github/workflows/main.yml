@@ -46,11 +46,10 @@ jobs:
           const sha = '${{ github.sha }}';
           const short_sha = sha.substr(sha.length - 7);
          
-          console.log(sha, short_sha);
           github.pulls.create({
             owner: '${{ env.owner }}',
             repo: '${{ env.repo }}',
-            title: `test pull request for ${short_sha}',
+            title: `test pull request for ${short_sha}`,
             head: short_sha,
             base: 'master'
           });
