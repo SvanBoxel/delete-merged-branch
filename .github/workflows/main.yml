@@ -32,4 +32,4 @@ jobs:
         echo '${{ github.sha }}' >> README.md
         git add .
         git commit -m "Testing delete-merged-branch bot sha ${{ github.sha }}"
-        git push -u origin master
+        git push -u origin ${{ github.sha }}
