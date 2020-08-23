@@ -60,7 +60,7 @@ jobs:
       with: 
         github-token: ${{ secrets.DELETE_TEST_REPO_PAT }}
         script: |
-          const short_sha = '${{ env.short_sha }};
+          const short_sha = '${{ env.short_sha }}';
          
           octokit.pulls.merge({
             owner: '${{ env.owner }}',
