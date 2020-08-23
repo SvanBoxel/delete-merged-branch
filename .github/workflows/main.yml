@@ -38,18 +38,31 @@ jobs:
         git add .
         git commit -m "Testing delete-merged-branch bot sha ${{ github.sha }}"
         git push -u origin $SHORT_SHA
+        echo "::set-env name=short_sha::$SHORT_SHA"
     - name: Create pull request
       uses: actions/github-script@v3
       with: 
-        token: ${{ secrets.DELETE_TEST_REPO_PAT }}
+        github-token: ${{ secrets.DELETE_TEST_REPO_PAT }}
         script: |
-          const sha = '${{ github.sha }}';
-          const short_sha = sha.substr(sha.length - 7);
+          const short_sha = '${{ env.short_sha }};
          
-          github.pulls.create({
+          const pr = await github.pulls.create({
             owner: '${{ env.owner }}',
             repo: '${{ env.repo }}',
             title: `test pull request for ${short_sha}`,
             head: short_sha,
             base: 'master'
+          });
+          
+          console.log(pr)
+    - name: Merge pull request
+      uses: actions/github-script@v3
+      with: 
+        github-token: ${{ secrets.DELETE_TEST_REPO_PAT }}
+        script: |
+          const short_sha = '${{ env.short_sha }};
+         
+          octokit.pulls.merge({
+            owner: '${{ env.owner }}',
+            repo: '${{ env.repo }}',
           });
