@@ -67,7 +67,7 @@ jobs:
             repo: '${{ env.repo }}',
             pull_number: '${{ env.pull_number }}'
           });
-    - name: Sleep for 5 seconds
+    - name: Sleep for 10 seconds
       run: sleep 10s
     - name: Check if branch is deleted
       uses: actions/github-script@v3
@@ -85,5 +85,5 @@ jobs:
           const closed = events.data.some(events => events.event === 'head_ref_deleted')
           
           if (!closed) {
-            core.setFailed(`Action failed with error ${err}`);
+            core.setFailed(`Action failed because branch delete event is not found`);
           }
