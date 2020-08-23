@@ -25,7 +25,7 @@ jobs:
         token: ${{ secrets.DELETE_TEST_REPO_PAT }}
         ref: 'master'
     - name: Run a one-line script
-      run:
+      run: |
         git checkout -b ${{ github.sha }}
         echo '${{ github.sha }}' >> README.md
         git push
