@@ -28,4 +28,4 @@ jobs:
       run: |
         git checkout -b ${{ github.sha }}
         echo '${{ github.sha }}' >> README.md
-        git push
+        git push -u origin master
