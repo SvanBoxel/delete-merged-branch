@@ -26,8 +26,8 @@ jobs:
         ref: 'master'
     - name: Create commit
       run: |
-        SHA = '${{ github.sha }}'
-        SHORT_SHA = ${SHA: -7}
+        SHA='${{ github.sha }}'
+        SHORT_SHA=${SHA: -7}
         git config --global user.email "actions-bot@example.com"
         git config --global user.name "Actions bot delete merged branch"
         git checkout -b $SHORT_SHA
