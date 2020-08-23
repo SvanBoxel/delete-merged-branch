@@ -26,10 +26,11 @@ jobs:
         ref: 'master'
     - name: Run a one-line script
       run: |
+        SHORT_SHA = ${${{ github.sha }}: -7}
         git config --global user.email "actions-bot@example.com"
         git config --global user.name "Actions bot delete merged branch"
-        git checkout -b ${{ github.sha }}
+        git checkout -b $SHORT_SHA
         echo '${{ github.sha }}' >> README.md
         git add .
         git commit -m "Testing delete-merged-branch bot sha ${{ github.sha }}"
-        git push -u origin ${{ github.sha }}
+        git push -u origin $SHORT_SHA
