@@ -67,18 +67,16 @@ jobs:
             repo: '${{ env.repo }}',
             pull_number: '${{ env.pull_number }}'
           });
-    - name: Sleep for 30 seconds
-      uses: jakejarvis/wait-action@master
-      with:
-        time: '5s'
+    - name: Sleep for 5 seconds
+      run: sleep 5s
     - name: Check if branch is deleted
       uses: actions/github-script@v3
       with: 
         github-token: ${{ secrets.DELETE_TEST_REPO_PAT }}
         script: |
           const short_sha = '${{ env.short_sha }}';
-         
-          const events = await github.pulls.listEvents({
+
+          const events = await github.issues.listEvents({
             owner: '${{ env.owner }}',
             repo: '${{ env.repo }}',
             pull_number: '${{ env.pull_number }}'
