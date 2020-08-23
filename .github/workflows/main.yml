@@ -23,6 +23,7 @@ jobs:
         # Repository name with owner. For example, actions/checkout
         repository: SvanBoxel/delete-test
         token: ${{ secrets.DELETE_TEST_REPO_PAT }}
+        ref: 'master'
     - name: Run a one-line script
       run:
         git checkout -b ${{ github.sha }}
