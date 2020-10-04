@@ -7,6 +7,9 @@ provider:
   credentials: ~/.gcloud/keyfile.json # path must be absolute
   environment:
     PROJECT_ID: ${env:PROJECT_ID}
+    WEBHOOK_SECRET: ${env:WEBHOOK_SECRET}
+    PRIVATE_KEY_PATH: ${env:PRIVATE_KEY_PATH}
+    APP_ID: ${env:APP_ID}
 
 plugins:
   - serverless-google-cloudfunctions
