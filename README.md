@@ -88,9 +88,8 @@ For more, check out the [Contributing Guide](CONTRIBUTING.md).
 [ISC](LICENSE) © 2018 Sebass van Boxel <hello@svboxel.com>
 
 ## Badges
-[![Build Status](https://github.com/svanboxel/delete-merged-branch/workflows/Node%20CI/badge.svg)](https://github.com/SvanBoxel/delete-merged-branch/actions)
+[![Build Status](https://github.com/SvanBoxel/delete-merged-branch/workflows/Test%20bot%20e2e/badge.svg)](https://github.com/SvanBoxel/delete-merged-branch/actions)
 [![codecov](https://codecov.io/gh/SvanBoxel/delete-merged-branch/branch/master/graph/badge.svg)](https://codecov.io/gh/SvanBoxel/delete-merged-branch)
-![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m780713473-6281c6fa7a94950835bfea39.svg)
 [![Greenkeeper badge](https://badges.greenkeeper.io/SvanBoxel/delete-merged-branch.svg?token=f5b0c3f23f4ab216a26c3c3559453a514b321c54b14aed881e543a5969eeca62&ts=1531752685299)](https://greenkeeper.io/)
 [![Project maintainability](https://sonarcloud.io/api/project_badges/measure?project=SvanBoxel_delete-merged-branch&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=SvanBoxel_delete-merged-branch)
 [![npm version](https://badge.fury.io/js/delete-merged-branch.svg)](https://www.npmjs.com/package/delete-merged-branch)
