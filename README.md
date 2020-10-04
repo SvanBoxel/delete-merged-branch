@@ -1,5 +1,5 @@
 # Delete merged branch
-[![Build Status](https://github.com/svanboxel/delete-merged-branch/workflows/Node%20CI/badge.svg)](https://github.com/SvanBoxel/delete-merged-branch/actions)
+[![Build Status](https://github.com/SvanBoxel/delete-merged-branch/workflows/Test%20bot%20e2e/badge.svg)](https://github.com/SvanBoxel/delete-merged-branch/actions)
 _Want to see more badges? [Click here](#badges)!_
 
 
