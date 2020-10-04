@@ -36,7 +36,7 @@
   "devDependencies": {
     "@semantic-release/npm": "7.0.5",
     "codecov": "3.7.2",
-    "jest": "26.2.2",
+    "jest": "26.4.2",
     "nodemon": "2.0.4",
     "semantic-release": "17.1.1",
     "serverless": "1.78.1",
@@ -70,6 +70,9 @@
   "standard": {
     "env": [
       "jest"
+    ],
+    "ignore": [
+      "/dist"
     ]
   }
 }

@@ -102,12 +102,11 @@ describe('deleteMergedBranch function', () => {
 
     describe('deleteReference call fails', () => {
       beforeEach(async () => {
-        context.github.git.deleteRef = jest.fn().mockRejectedValue(new Error('Async error'));
-        await deleteMergedBranch(context)
+        context.github.git.deleteRef = ''
       })
 
-      it('should log the error', () => {
-        expect(context.log.warn).toBeCalledWith(expect.any(Error), `Failed to delete ${owner}/${repo}/heads/${ref}`)
+      it('should log the error', async () => {
+        expect(deleteMergedBranch()).rejects.toEqual(expect.any(Error))
       })
     })
   })
