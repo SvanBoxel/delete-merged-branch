@@ -93,7 +93,21 @@ CI (GitHub Actions) is in charge of releasing new versions of the GitHub App to 
 ## Running in GitHub actions
 This app is compatible with [GitHub Actions](https://github.com/features/actions). You need to create a workflow that is triggered on the `pull_request` event for this. Then, you use this repo for the action. (`SvanBoxel/delete-merged-branch@master`). Don't forget to check the `GITHUB_TOKEN` secret. That's it.
 
-![Delete merged branch action](https://user-images.githubusercontent.com/24505883/48064765-14e49180-e1c9-11e8-9fa5-151bf5783b5c.png)
+```yml
+name: delete branch on close pr
+on: 
+  pull_request:
+    types: [closed]
+  
+jobs:
+  delete-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: delete branch
+        uses: SvanBoxel/delete-merged-branch@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
 
 ## Contributing
 
