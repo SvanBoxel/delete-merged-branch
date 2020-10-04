@@ -30,7 +30,8 @@
     "@google-cloud/secret-manager": "^3.1.0",
     "@probot/serverless-gcf": "^0.2.0",
     "npm-check-updates": "^7.0.3",
-    "probot": "9.13.0"
+    "probot": "9.13.0",
+    "probot-actions-adapter": "^2.0.0"
   },
   "devDependencies": {
     "@semantic-release/npm": "7.0.5",
