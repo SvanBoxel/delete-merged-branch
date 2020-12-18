@@ -1,4 +1,7 @@
+![delete-merged-branch](https://socialify.git.ci/SvanBoxel/delete-merged-branch/image?description=1&font=KoHo&forks=1&issues=1&language=1&pattern=Signal&pulls=1&stargazers=1&theme=Dark)
+
 # Delete merged branch
+
 [![Build Status](https://github.com/SvanBoxel/delete-merged-branch/workflows/Test%20bot%20e2e/badge.svg)](https://github.com/SvanBoxel/delete-merged-branch/actions)
 _Want to see more badges? [Click here](#badges)!_
 
