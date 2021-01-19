@@ -10,6 +10,8 @@ on:
 env:
   owner: 'SvanBoxel'
   repo: 'delete-test'
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+  
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
