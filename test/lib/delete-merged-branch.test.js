@@ -82,13 +82,41 @@ describe('deleteMergedBranch function', () => {
     })
   })
 
-  describe('branch is merged', () => {
+  describe('base not included in config', () => {
+    it('should log it didn\'t delete the branch', async () => {
+      context.config = jest.fn().mockReturnValue({
+        exclude: [],
+        on_base: ['something', 'other', 'than', 'the', 'base', 'branch']
+      })
+      context.payload.pull_request.head.label = 'foo:bar'
+      await deleteMergedBranch(context)
+      expect(context.log.info).toBeCalledWith(`Base does not match any 'on_base'. Keeping ${context.payload.pull_request.head.label}`)
+    })
+
+    it('should NOT call the deleteReference method', async () => {
+      context.config = jest.fn().mockReturnValue({
+        exclude: [],
+        on_base: ['something', 'other', 'than', 'the', 'base', 'branch']
+      })
+      context.payload.pull_request.head.label = 'foo:bar'
+      await deleteMergedBranch(context)
+      expect(context.github.git.deleteRef).not.toHaveBeenCalled()
+    })
+  })
+
+  describe.each([
+    false,
+    true
+  ])('branch is merged', (baseExplicitlyIncluded) => {
     beforeEach(async () => {
       context.payload.pull_request.merged = true
+      if (baseExplicitlyIncluded) {
+        context.config.on_base = [context.payload.pull_request.base.ref]
+      }
       await deleteMergedBranch(context)
     })
 
-    it('should call the deleteReference method', () => {
+    it('should call the deleteReference method, base in on_base: ' + baseExplicitlyIncluded, () => {
       expect(context.github.git.deleteRef).toHaveBeenCalledWith({
         owner,
         ref: `heads/${ref}`,
@@ -96,11 +124,11 @@ describe('deleteMergedBranch function', () => {
       })
     })
 
-    it('should log the delete', () => {
+    it('should log the delete, base in on_base: ' + baseExplicitlyIncluded, () => {
       expect(context.log.info).toBeCalledWith(`Successfully deleted ${owner}/${repo}/heads/${ref} which was merged`)
     })
 
-    describe('deleteReference call fails', () => {
+    describe('deleteReference call fails, base in on_base: ' + baseExplicitlyIncluded, () => {
       beforeEach(async () => {
         context.github.git.deleteRef = ''
       })
