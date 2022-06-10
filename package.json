@@ -38,7 +38,7 @@
     "codecov": "3.7.2",
     "jest": "26.4.2",
     "nodemon": "2.0.4",
-    "semantic-release": "17.2.3",
+    "semantic-release": "19.0.3",
     "serverless": "1.78.1",
     "serverless-google-cloudfunctions": "^3.1.0",
     "smee-client": "1.1.0",
