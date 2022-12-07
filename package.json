@@ -39,7 +39,7 @@
     "jest": "26.4.2",
     "nodemon": "2.0.4",
     "semantic-release": "17.2.3",
-    "serverless": "1.78.1",
+    "serverless": "3.25.1",
     "serverless-google-cloudfunctions": "^3.1.0",
     "smee-client": "1.1.0",
     "standard": "14.3.4"
